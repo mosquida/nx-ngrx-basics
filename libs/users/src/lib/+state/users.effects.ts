@@ -11,7 +11,11 @@ export class UsersEffects {
   init$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UsersActions.initUsers),
-      switchMap(() => of(UsersActions.loadUsersSuccess({ users: [] }))),
+      switchMap(() => {
+        console.log('effects works first');
+
+        return of(UsersActions.loadUsersSuccess({ users: [] }));
+      }),
       catchError((error) => {
         console.error('Error', error);
         return of(UsersActions.loadUsersFailure({ error }));

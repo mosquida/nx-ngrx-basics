@@ -7,6 +7,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { UsersFacade, UsersModule } from '@nx-ngrx/users';
 
 @NgModule({
   declarations: [AppComponent, NxWelcomeComponent],
@@ -25,8 +26,9 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     ),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
+    UsersModule,
   ],
-  providers: [],
+  providers: [UsersFacade],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
